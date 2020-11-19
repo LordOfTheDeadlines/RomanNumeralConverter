@@ -1,5 +1,4 @@
 class Solution:
-
     roman_chars = {
         'M': 1000,
         'D': 500,
@@ -11,7 +10,6 @@ class Solution:
     }
 
     def romanToInt(self, roman_num: str) -> int:
-
         roman_num = roman_num.upper().replace(' ', '')
 
         if not self.is_correct(roman_num):
