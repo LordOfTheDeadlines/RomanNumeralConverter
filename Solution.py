@@ -1,4 +1,5 @@
-class RomanNumeralConverter:
+class Solution:
+
     roman_chars = {
         'M': 1000,
         'D': 500,
@@ -21,9 +22,10 @@ class RomanNumeralConverter:
     def convert(self, roman_num):
         previous_num = 0
         result = 0
+        roman_num_digits = list(roman_num)
 
-        for i in range(len(roman_num) - 1, -1, -1):
-            temp_char = roman_num[i]
+        for rom_digit in reversed(roman_num_digits):
+            temp_char = rom_digit
             temp_num = self.roman_chars[temp_char]
 
             if temp_num >= previous_num:
@@ -36,7 +38,6 @@ class RomanNumeralConverter:
         return result
 
     def is_correct(self, roman_num):
-
         length = len(roman_num)
 
         if length < 1:
@@ -52,14 +53,14 @@ class RomanNumeralConverter:
             return False
         return True
 
-    def is_consist_arabic_digits(self, value):
-        for symbol in value:
+    def is_consist_arabic_digits(self, roman_num):
+        for symbol in roman_num:
             if symbol.isdigit():
                 return True
         return False
 
-    def is_consist_wrong_chars(self, value):
-        for symbol in value:
+    def is_consist_wrong_chars(self, roman_num):
+        for symbol in roman_num:
             if symbol not in self.roman_chars:
                 return True
         return False
